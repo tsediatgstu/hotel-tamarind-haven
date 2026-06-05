@@ -19,8 +19,8 @@ function Footer() {
         <div>
           <h4 className="text-[#D4AF37] font-bold tracking-wider uppercase text-xs mb-4">Contact Info</h4>
           <p className="text-sm space-y-2 text-neutral-400 font-light leading-relaxed">
-            <span className="text-[#2B7A4B]">📍</span> Bole District, Addis Ababa, Ethiopia<br />
-            <span className="text-[#2B7A4B]">📞</span> +251 11 XXXXXXX<br />
+            <span className="text-[#2B7A4B]">📍</span> Bole District,Megenagna, Addis Ababa, Ethiopia<br />
+            <span className="text-[#2B7A4B]">📞</span> +251 911 123 456<br />
             <span className="text-[#2B7A4B]">✉️</span> info@hoteltamarindhaven.com
           </p>
         </div>
@@ -38,9 +38,14 @@ function Footer() {
 
       </div>
       
-      {/* ================= COPYRIGHT SUB-FRAMEWORK ================= */}
-      <div className="border-t border-[#2B7A4B]/10 max-w-7xl mx-auto px-4 pt-6 text-center text-xs text-neutral-500 font-light">
-        &copy; {new Date().getFullYear()} Hotel Tamarind Haven. All Rights Reserved.
+      {/* ================= COPYRIGHT & ATTRIBUTION SUB-FRAMEWORK ================= */}
+      <div className="border-t border-[#2B7A4B]/10 max-w-7xl mx-auto px-4 pt-6 text-center text-xs text-neutral-500 font-light space-y-2">
+        <div>
+          &copy; {new Date().getFullYear()} Hotel Tamarind Haven. All Rights Reserved.
+        </div>
+        <div className="text-[11px] tracking-wider text-neutral-400">
+          Developed by <span className="text-[#2B7A4B] font-medium">Tsedia tgstu</span>
+        </div>
       </div>
     </footer>
   );

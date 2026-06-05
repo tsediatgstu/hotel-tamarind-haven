@@ -15,19 +15,21 @@ function App() {
   return (
     <BookingProvider>
       <Router>
-        <Navbar />
-        <main className="flex-grow">
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/accommodations" element={<Accommodations />} />
-            <Route path="/conference-events" element={<ConferenceEvents />} />
-            <Route path="/dining-nightlife" element={<DiningNightlife />} />
-            <Route path="/wellness" element={<Wellness />} />
-            <Route path="/services" element={<Services />} />
-            <Route path="/book" element={<BookNow />} />
-          </Routes>
-        </main>
-        <Footer />
+        <div className="flex flex-col min-h-screen">
+          <Navbar />
+          <main className="flex-grow">
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/accommodations" element={<Accommodations />} />
+              <Route path="/conference-events" element={<ConferenceEvents />} />
+              <Route path="/dining-nightlife" element={<DiningNightlife />} />
+              <Route path="/wellness" element={<Wellness />} />
+              <Route path="/services" element={<Services />} />
+              <Route path="/book" element={<BookNow />} />
+            </Routes>
+          </main>
+          <Footer />
+        </div>
       </Router>
     </BookingProvider>
   );
