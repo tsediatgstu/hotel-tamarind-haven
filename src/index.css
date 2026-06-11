@@ -1,1 +1,5 @@
 ﻿@import "tailwindcss";
+@theme {
+  /* Define 'maiandra' as a custom utility class */
+  --font-maiandra: "Maiandra GD", sans-serif;
+}

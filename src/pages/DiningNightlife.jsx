@@ -1,157 +1,96 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
-function DiningNightlife() {
-  const outlets = [
-    {
-      id: "01",
-      title: "Aetheria – Fine Dining Gastronomy",
-      tagline: "Epicurean Masterpieces & Private Salons",
-      desc: "An avant-garde culinary journey combining ancestral heritage with modern global gastronomy techniques. Features an exclusive chef's table experience and discrete, soundproofed VIP rooms engineered for high-stakes corporate hosting.",
-      highlights: ["Curated multi-course degustation menus", "Sommelier-led vintage wine pairing arrays", "Intimate architectural private dining enclosures"],
-      img: "/w1.png"
-    },
-    {
-      id: "02",
-      title: "The Horizon Room – All-Day International Buffet",
-      tagline: "Global Culinary Stations & Corporate Breakfasts",
-      desc: "An expansive, live-cooking theater curated by international master chefs. Perfect for swift executive lunches or celebratory corporate galas, offering continuous multi-station displays from across the globe.",
-      highlights: ["Artisanal live-carving and seafood displays", "Dedicated organic, wellness, and vegan lines", "High-capacity professional layout for delegations"],
-      img: "/w2.png"
-    },
-    {
-      id: "03",
-      title: "The Solarium Lounge & Cafe",
-      tagline: "Artisanal Roastery & Elite Corporate Networking Hub",
-      desc: "A sprawling, sun-drenched architectural space designed exclusively for morning enterprise dialogues and evening unwinding. Serving legendary single-origin Ethiopian specialty coffees alongside crisp, hand-crafted French pastries.",
-      highlights: ["In-house master barista brewing rituals", "High-speed VPN-optimized workspace connectivity", "Afternoon high tea and premium botanical pairings"],
-      img: "/w3.png"
-    },
-    {
-      id: "04",
-      title: "Sky View VIP Rooftop Lounge",
-      tagline: "Panoramic Elevation & Sovereign Mixology",
-      desc: "Perched at the highest point of the city, this hyper-exclusive open-air oasis features panoramic capital skyline views. An elite atmosphere prioritizing extreme visual privacy, curated deep ambient house sets, and bespoke luxury liquid engineering.",
-      highlights: ["Bespoke molecular cocktail formulations", "Climate-controlled private outdoor cabanas", "Strict VIP gatekeeping and secure private elevator access"],
-      img: "/w4.png"
-    }
-  ];
+function TamarindHavenPortfolio() {
+  const [activeTab, setActiveTab] = useState('dining');
+  const [heroIndex, setHeroIndex] = useState(0);
+  const heroImages = ['/club.png', '/deplom p.jpg', '/abay.png'];
+
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setHeroIndex((prev) => (prev + 1) % heroImages.length);
+    }, 3000);
+    return () => clearInterval(timer);
+  }, []);
+
+  const data = {
+    dining: [
+      { title: "Aetheria", tagline: "Fine Dining", desc: "Avant-garde culinary fusion with private salons.", img: "/club.png" },
+      { title: "The Horizon Room", tagline: "International Buffet", desc: "Live-cooking theater for corporate galas.", img: "/horezen.png" },
+      { title: "The Solarium", tagline: "Artisanal Lounge", desc: "Architecture-led hub for enterprise dialogue.", img: "/w3.png" },
+      { title: "Sky View VIP Bar", tagline: "Rooftop Nightlife", desc: "Hyper-exclusive oasis with panoramic views.", img: "/w4.png" }
+    ],
+    events: [
+      { name: "Tamarind Hall", cap: "500 Pax", img: "/tama.png", desc: "Grand ballroom for high-profile summits." },
+      { name: "Abay Hall", cap: "300 Pax", img: "/abay.png", desc: "Sophisticated corporate conference venue." },
+      { name: "Tana Hall", cap: "200 Pax", img: "/tana.png",desc: "Multi-media focused assembly hall." },
+      { name: "Tekeze Hall", cap: "100 Pax",img: "/tekeze.png", desc: "Specialized training workshop space." },
+      { name: "Baro Hall", cap: "80 Pax",img: "/baro.png", desc: "Dynamic team seminar environment." },
+      { name: "Warka Hall", cap: "60 Pax", img: "/warka.png",desc: "Intimate executive brainstorming sanctuary." },
+      { name: "Koka Business Hall", cap: "40 Pax", img: "/koka.png",desc: "High-speed business negotiation hub." },
+      { name: "Shebelle Board Room", cap: "30 Pax", img: "/shebele.png",desc: "Secure high-stakes executive boardroom." },
+      { name: "Lalibela Studio", cap: "20 Pax", img: "/lalibela.png",desc: "Design-forward private briefing studio." }
+    ],
+    parking: [
+      { name: "Executive Valet", desc: "Secure, climate-controlled subterranean parking.", img: "/excu p.png" },
+      { name: "Diplomatic Access", desc: "Private, high-security entry for VIP arrivals.", img: "/deplom p.jpg" },
+      { name: "EV Infrastructure", desc: "State-of-the-art supercharging matrix.", img: "/ev p.png" }
+    ]
+  };
 
   return (
-    <div className="bg-[#FFFFFF] text-[#1C2E24] font-sans antialiased selection:bg-[#2B7A4B]/20 min-h-screen">
+    <div className="bg-[#FBFBFA] text-[#1C2E24] font-sans min-h-screen">
       
-      {/* ================= HERO BLOCK ================= */}
-      <section className="relative bg-[#1C2E24] py-32 px-4 sm:px-6 lg:px-8 border-b border-[#D4AF37]/20 text-center overflow-hidden">
-        {/* Subtle Luxury Pattern Background Overlay */}
-        <div className="absolute inset-0 opacity-5 bg-[radial-gradient(#D4AF37_1px,transparent_1px)] [background-size:16px_16px]" />
-        
-        <div className="relative z-10 max-w-4xl mx-auto">
-          <span className="text-[10px] sm:text-xs uppercase tracking-[0.4em] text-[#D4AF37] font-black block mb-4">
-            Elite Gastronomic Ecosystem
-          </span>
-          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-serif font-light tracking-wide text-white mb-6">
-            Culinary & Nightlife Outlets
+      {/* HERO SECTION */}
+      <section className="relative h-[60vh] flex flex-col items-center justify-center text-center overflow-hidden border-b-4 border-[#D4AF37]">
+        {heroImages.map((img, idx) => (
+          <img key={img} src={img} className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ${heroIndex === idx ? 'opacity-100' : 'opacity-0'}`} alt="Hero View" />
+        ))}
+        <div className="absolute inset-0 bg-[#1C2E24]/60" />
+        <div className="relative z-10 px-4">
+          <h1 className="text-5xl md:text-7xl font-serif text-white mb-6">
+            <span className="text-[#D4AF37]">Tamarind</span> Haven
           </h1>
-          <div className="w-12 h-[1px] bg-[#D4AF37] mx-auto mb-6" />
-          <p className="text-neutral-400 text-xs sm:text-sm tracking-widest max-w-2xl mx-auto leading-relaxed font-light">
-            Every dining destination inside Hotel Tamarind Haven features online reservation management capabilities, bespoke seasonal ingredient integration, and absolute privacy frameworks engineered for global leaders.
+          <p className="text-white text-lg md:text-xl font-light tracking-[0.2em] max-w-2xl mx-auto border-t border-b border-white/30 py-4">
+“Serve With Heart, Lead With Pride, Grow With Purpose.”
+
           </p>
         </div>
       </section>
 
-      {/* ================= OUTLETS GRID REGISTRY ================= */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-28">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
-          {outlets.map((outlet) => (
-            <div 
-              key={outlet.id} 
-              className="group bg-[#FFFFFF] p-6 border border-neutral-200/70 shadow-sm hover:shadow-2xl hover:border-[#D4AF37]/30 transition-all duration-500 flex flex-col justify-between"
-            >
-              <div>
-                {/* Image Frame Layer using your local asset string array mappings */}
-                <div className="overflow-hidden mb-8 bg-[#1C2E24] aspect-[16/10] relative">
-                  <img 
-                    src={outlet.img} 
-                    alt={outlet.title} 
-                    className="w-full h-full object-cover opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700"
-                    onError={(e) => {
-                      // Fallback premium unsplash links in case local images are briefly building/missing
-                      const defaults = [
-                        "https://images.unsplash.com/photo-1514933651103-005eec06c04b?auto=format&fit=crop&w=800&q=80",
-                        "https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=800&q=80",
-                        "https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=800&q=80",
-                        "https://images.unsplash.com/photo-1574096079513-d8259312b785?auto=format&fit=crop&w=800&q=80"
-                      ];
-                      e.target.src = defaults[parseInt(outlet.id) - 1];
-                    }}
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
-                  <span className="absolute top-4 right-4 bg-[#1C2E24] text-[#D4AF37] font-serif italic text-xs px-3 py-1.5 border border-[#D4AF37]/20 tracking-widest">
-                    {outlet.id}
-                  </span>
-                </div>
+      {/* TABS */}
+      <div className="flex justify-center gap-8 py-10 bg-white shadow-sm">
+        {['dining', 'events', 'parking'].map(tab => (
+          <button key={tab} onClick={() => setActiveTab(tab)} 
+            className={`text-[11px] font-black uppercase tracking-[0.3em] pb-1 border-b-2 transition-all ${activeTab === tab ? 'text-[#D4AF37] border-[#D4AF37]' : 'text-neutral-400 border-transparent hover:text-[#1C2E24]'}`}>
+            {tab}
+          </button>
+        ))}
+      </div>
 
-                {/* Typography Block */}
-                <span className="text-[9px] uppercase tracking-[0.25em] text-[#2B7A4B] font-black block mb-1">
-                  {outlet.tagline}
-                </span>
-                <h3 className="text-lg sm:text-xl font-serif font-light tracking-wide text-[#1C2E24] mb-4 group-hover:text-[#2B7A4B] transition-colors">
-                  {outlet.title}
-                </h3>
-                <p className="text-xs text-neutral-500 font-light leading-relaxed tracking-widest mb-6">
-                  {outlet.desc}
-                </p>
-
-                {/* Spec List Features Matrix */}
-                <div className="space-y-2.5 pt-4 border-t border-neutral-100">
-                  {outlet.highlights.map((highlight, index) => (
-                    <div key={index} className="flex items-start space-x-2">
-                      <span className="text-[#D4AF37] text-xs font-bold">✔</span>
-                      <span className="text-[11px] text-neutral-600 font-light tracking-wider leading-tight">
-                        {highlight}
-                      </span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              {/* Action Trigger Interface */}
-              <div className="mt-8 pt-4 border-t border-neutral-500/10 flex items-center justify-between">
-                <span className="text-[10px] uppercase tracking-widest font-black text-[#D4AF37] group-hover:translate-x-1 transition-transform duration-300">
-                  Explore Menu &bull; Reserve Table &rarr;
-                </span>
-                <button className="bg-transparent border border-[#1C2E24]/20 text-[#1C2E24] px-5 py-2 text-[9px] uppercase tracking-widest font-black hover:bg-[#1C2E24] hover:text-white transition-all duration-300">
-                  Book Space
-                </button>
-              </div>
-
+      {/* DYNAMIC GRID */}
+      <main className="max-w-7xl mx-auto px-4 py-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {data[activeTab].map((item, i) => (
+            <div key={i} className="bg-white border p-6 flex flex-col hover:border-[#D4AF37] transition-all shadow-sm">
+              <img src={item.img || item.image} alt={item.title || item.name} className="w-full h-48 object-cover mb-6" />
+              <h3 className="text-sm font-black uppercase tracking-widest mb-1">{item.title || item.name}</h3>
+              {item.tagline && <p className="text-[9px] uppercase tracking-widest text-[#2B7A4B] font-bold mb-4">{item.tagline}</p>}
+              {item.cap && <p className="text-[9px] uppercase tracking-widest text-[#2B7A4B] font-bold mb-4">Capacity: {item.cap}</p>}
+              <p className="text-[11px] text-neutral-600 leading-relaxed mb-6 flex-grow">{item.desc}</p>
+              <button className="w-full border border-neutral-300 py-3 text-[10px] font-black uppercase hover:bg-[#1C2E24] hover:text-white transition-all">
+                {activeTab === 'events' ? 'Request Proposal' : 'Explore Details'}
+              </button>
             </div>
           ))}
         </div>
-      </section>
+      </main>
 
-      {/* ================= RESERVATION CAVEAT BANNER ================= */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-32">
-        <div className="bg-[#1C2E24] text-white p-8 sm:p-16 border border-[#D4AF37]/30 text-center relative">
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-24 h-[1px] bg-[#D4AF37]" />
-          <div className="max-w-xl mx-auto">
-            <h4 className="text-sm uppercase tracking-[0.3em] text-[#D4AF37] font-black mb-3">
-              Corporate & Diplomatic Buyouts
-            </h4>
-            <p className="text-neutral-300 text-xs font-light tracking-widest leading-relaxed mb-8">
-              All architectural hospitality venues are fully customizable for exclusive private buyouts, executive boardroom lunch services, or closed-door diplomatic receptions.
-            </p>
-            <a 
-              href="mailto:concierge@hoteltamarindhaven.com"
-              className="inline-block bg-transparent border border-[#D4AF37] text-[#D4AF37] px-10 py-4 text-xs uppercase tracking-[0.25em] font-black hover:bg-[#D4AF37] hover:text-[#1C2E24] transition-all duration-400"
-            >
-              Contact Event Concierge
-            </a>
-          </div>
-        </div>
-      </section>
-
+      <footer className="bg-[#1C2E24] py-12 text-center text-white text-[10px] uppercase tracking-[0.2em]">
+        © 2026 Hotel Tamarind Haven – Excellence in Every Detail
+      </footer>
     </div>
   );
 }
 
-export default DiningNightlife;
+export default TamarindHavenPortfolio;

@@ -1,101 +1,70 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 function Wellness() {
+  const [heroIndex, setHeroIndex] = useState(0);
+  const heroImages = ['/gal.jpg', '/w2.png', '/w3.png'];
+
+  // Hero carousel cycling every 3 seconds
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setHeroIndex((prev) => (prev + 1) % heroImages.length);
+    }, 2000);
+    return () => clearInterval(timer);
+  }, []);
+
   const facilities = [
-    {
-      id: "01",
-      title: "State-of-the-Art Fitness Center",
-      tagline: "Professional-Grade Training Environment",
-      desc: "Our expansive, high-performance gym is equipped with elite Olympic-level training arrays, custom conditioning zones, and dedicated personal coaching frameworks. Designed with direct basement and secure indoor parking integration for seamless, private access.",
-      highlights: ["Full basement & secure indoor parking access", "Advanced biometric entry & monitoring systems", "Dedicated elite personal training advisors"]
-    },
-    {
-      id: "02",
-      title: "Therapeutic Steam & Sauna Suites",
-      tagline: "Absolute Privacy & Physical Restoration",
-      desc: "Engineered for deep detoxification and metabolic recovery. This custom sanctuary features specialized thermal zones alongside ultra-exclusive private chambers tailored specifically for corporate teams or personal relaxation.",
-      highlights: ["4 Private Couples Treatment Rooms", "2 Specialized Family Thermal Rooms", "Signature Tamarind-infused aromatherapy steam arrays"]
-    },
-    {
-      id: "03",
-      title: "Sovereign Accessibility & Logistics",
-      tagline: "Seamless Mobility Infrastructure",
-      desc: "Architecturally engineered to guarantee swift, unhindered movement across all hospitality zones. Featuring top-tier high-speed vertical transportation systems and dedicated accessible layouts prioritizing ease of transit.",
-      highlights: ["3 Next-generation high-speed intelligent elevators", "Dedicated, secure parking bays for guests with disabilities", "Zero-step step-free luxury transitions throughout the property"]
-    }
+    { title: "Steam & Sauna Suites", tag: "THERAPEUTIC DETOX", desc: "Dual-zone thermal sanctuary for intense purification and deep muscle relief. The ultimate sanctuary for executive rejuvenation.", img: "/suna.png" },
+    { title: "Elite Performance Gym", tag: "FITNESS CENTER", desc: "Achieve peak conditioning in our expansive gym, featuring Olympic-grade equipment and advanced biometric tracking.", img: "/fitness.png" },
+    { title: "Cryotherapy Recovery Lab", tag: "METABOLIC HEALING", desc: "Sub-zero temperatures to accelerate muscle repair and reduce systemic inflammation for elite performance.", img: "/f3.png" },
+    { title: "Executive Wellness Lounge", tag: "CELLULAR REJUVENATION", desc: "Private space for post-treatment rest, serving antioxidant-rich refreshments and nutrient-dense infusions.", img: "/f4.png" },
+    { title: "Diagnostic Health Clinic", tag: "PRECISION WELLNESS", desc: "On-site specialists providing real-time data to tailor your recovery and fitness journey.", img: "/f5.png" },
+    { title: "Bio-Secure Sanctuary", tag: "TOTAL EXCLUSIVITY", desc: "Advanced entry systems ensuring absolute privacy for high-profile guests requiring secure, private access.", img: "/f6.png" }
   ];
 
   return (
-    <div className="bg-[#FFFFFF] text-[#1C2E24] font-sans antialiased selection:bg-[#2B7A4B]/20 min-h-screen">
+    <div className="bg-[#4f86f7]/5 min-h-screen font-sans">
       
-      {/* ================= HERO RECOVERY LAYER ================= */}
-      <section className="relative bg-[#1C2E24] py-32 px-4 sm:px-6 lg:px-8 border-b border-[#D4AF37]/20 text-center overflow-hidden">
-        <div className="absolute inset-0 opacity-5 bg-[radial-gradient(#D4AF37_1px,transparent_1px)] [background-size:16px_16px]" />
-        
-        <div className="relative z-10 max-w-4xl mx-auto">
-          <span className="text-[10px] sm:text-xs uppercase tracking-[0.4em] text-[#D4AF37] font-black block mb-4">
-            Sanctuary & Infrastructure
-          </span>
-          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-serif font-light tracking-wide text-white mb-6">
-            Wellness & Infrastructure
+      {/* HERO CAROUSEL */}
+      <section className="relative h-[60vh] flex flex-col items-center justify-center text-center overflow-hidden border-b-4 border-[#4f86f7]">
+        {heroImages.map((img, idx) => (
+          <img key={img} src={img} className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${heroIndex === idx ? 'opacity-100' : 'opacity-0'}`} />
+        ))}
+        <div className="absolute inset-0 bg-[#1C2E24]/70" />
+        <div className="relative z-10 px-4">
+          <h1 className="text-5xl md:text-7xl font-serif text-white mb-6">
+            Sanctuary & <span className="text-[#4f86f7]">Infrastructure</span>
           </h1>
-          <div className="w-12 h-[1px] bg-[#D4AF37] mx-auto mb-6" />
-          <p className="text-neutral-400 text-xs sm:text-sm tracking-widest max-w-2xl mx-auto leading-relaxed font-light">
-            A meticulous convergence of high-performance health architecture, sensory restoration arrays, and elite universal accessibility frameworks.
+          <p className="text-white text-lg font-light tracking-[0.2em] max-w-2xl mx-auto border-t border-b border-white/30 py-4">
+            Where elite physical restoration meets sovereign logistical precision.
           </p>
         </div>
       </section>
 
-      {/* ================= UTILITY GRID MATRIX ================= */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-28">
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 lg:gap-12">
-          {facilities.map((fac) => (
-            <div 
-              key={fac.id} 
-              className="group bg-[#FFFFFF] p-8 border border-neutral-200/70 shadow-sm hover:shadow-2xl hover:border-[#D4AF37]/30 transition-all duration-500 flex flex-col justify-between"
-            >
-              <div>
-                <div className="flex items-center justify-between mb-6 pb-4 border-b border-neutral-100">
-                  <span className="text-[10px] uppercase tracking-[0.25em] text-[#2B7A4B] font-black">
-                    {fac.tagline}
-                  </span>
-                  <span className="text-xs font-serif italic text-[#D4AF37] font-bold">
-                    {fac.id}
-                  </span>
-                </div>
-
-                <h3 className="text-lg sm:text-xl font-serif font-light tracking-wide text-[#1C2E24] mb-4 group-hover:text-[#2B7A4B] transition-colors">
-                  {fac.title}
-                </h3>
-                
-                <p className="text-xs text-neutral-500 font-light leading-relaxed tracking-widest mb-6">
-                  {fac.desc}
-                </p>
-
-                {/* Technical Highlights */}
-                <div className="space-y-3 pt-4 border-t border-neutral-100">
-                  {fac.highlights.map((highlight, index) => (
-                    <div key={index} className="flex items-start space-x-2.5">
-                      <span className="text-[#D4AF37] text-xs font-bold">✔</span>
-                      <span className="text-[11px] text-neutral-600 font-light tracking-wider leading-tight">
-                        {highlight}
-                      </span>
-                    </div>
-                  ))}
-                </div>
+      {/* FACILITIES GRID */}
+      <section className="max-w-7xl mx-auto px-4 py-24">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+          {facilities.map((fac, i) => (
+            <div key={i} className="bg-white border border-[#4f86f7]/20 p-8 hover:border-[#4f86f7] transition-all shadow-lg group">
+              <span className="text-[10px] uppercase tracking-[0.3em] text-[#4f86f7] font-black">{fac.tag}</span>
+              
+              <div className="h-48 my-6 bg-[#4f86f7]/5 overflow-hidden">
+                <img src={fac.img} alt={fac.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
               </div>
 
-              {/* Interaction Footer */}
-              <div className="mt-10 pt-4 border-t border-neutral-500/10 flex items-center justify-between">
-                <span className="text-[10px] uppercase tracking-widest font-black text-[#D4AF37] group-hover:translate-x-1 transition-transform duration-300">
-                  Explore Facility &rarr;
-                </span>
-              </div>
+              <h3 className="text-lg font-serif mb-3 text-[#1C2E24]">{fac.title}</h3>
+              <p className="text-[11px] text-neutral-600 leading-relaxed mb-6">{fac.desc}</p>
+              
+              <button className="w-full bg-[#1C2E24] text-white py-3 text-[10px] font-bold uppercase tracking-widest hover:bg-[#4f86f7] transition-colors">
+                Book Session
+              </button>
             </div>
           ))}
         </div>
       </section>
-
+      
+      <footer className="py-12 text-center text-[#4f86f7] text-[10px] uppercase tracking-[0.3em]">
+        © 2026 Hotel Tamarind Haven – Excellence in Every Detail
+      </footer>
     </div>
   );
 }
