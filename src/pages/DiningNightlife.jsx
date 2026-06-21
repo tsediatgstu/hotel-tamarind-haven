@@ -17,8 +17,7 @@ function TamarindHavenPortfolio() {
     dining: [
       { title: "Aetheria", tagline: "Fine Dining", desc: "Avant-garde culinary fusion with private salons.", img: "/club.png" },
       { title: "The Horizon Room", tagline: "International Buffet", desc: "Live-cooking theater for corporate galas.", img: "/horezen.png" },
-      { title: "The Solarium", tagline: "Artisanal Lounge", desc: "Architecture-led hub for enterprise dialogue.", img: "/w3.png" },
-      { title: "Sky View VIP Bar", tagline: "Rooftop Nightlife", desc: "Hyper-exclusive oasis with panoramic views.", img: "/w4.png" }
+      { title: "Sky View VIP Bar", tagline: "Rooftop Nightlife", desc: "Hyper-exclusive oasis with panoramic views.", img: "/bar.png" }
     ],
     events: [
       { name: "Tamarind Hall", cap: "500 Pax", img: "/tama.png", desc: "Grand ballroom for high-profile summits." },
@@ -27,14 +26,14 @@ function TamarindHavenPortfolio() {
       { name: "Tekeze Hall", cap: "100 Pax",img: "/tekeze.png", desc: "Specialized training workshop space." },
       { name: "Baro Hall", cap: "80 Pax",img: "/baro.png", desc: "Dynamic team seminar environment." },
       { name: "Warka Hall", cap: "60 Pax", img: "/warka.png",desc: "Intimate executive brainstorming sanctuary." },
-      { name: "Koka Business Hall", cap: "40 Pax", img: "/koka.png",desc: "High-speed business negotiation hub." },
-      { name: "Shebelle Board Room", cap: "30 Pax", img: "/shebele.png",desc: "Secure high-stakes executive boardroom." },
-      { name: "Lalibela Studio", cap: "20 Pax", img: "/lalibela.png",desc: "Design-forward private briefing studio." }
+      { name: "Koka Business Hall", cap: "40 Pax", img: "/kokab.jpg",desc: "High-speed business negotiation hub." },
+      { name: "Shebelle Board Room", cap: "30 Pax", img: "/shebele.jpg",desc: "Secure high-stakes executive boardroom." },
+      { name: "Lalibela Studio", cap: "20 Pax", img: "/lalibela.jpg",desc: "Design-forward private briefing studio." }
     ],
     parking: [
-      { name: "Executive Valet", desc: "Secure, climate-controlled subterranean parking.", img: "/excu p.png" },
-      { name: "Diplomatic Access", desc: "Private, high-security entry for VIP arrivals.", img: "/deplom p.jpg" },
-      { name: "EV Infrastructure", desc: "State-of-the-art supercharging matrix.", img: "/ev p.png" }
+      { name: "Walking Residents Parking", desc: "Secure, climate-controlled subterranean parking.", img: "/excu p.png" },
+      { name: "VIP Parking", desc: "Private, high-security entry for VIP arrivals.", img: "/deplom p.jpg" },
+      { name: "NightClub Parking", desc: "State-of-the-art supercharging matrix.", img: "/ev p.png" }
     ]
   };
 

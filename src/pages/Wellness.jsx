@@ -2,23 +2,23 @@ import React, { useState, useEffect } from 'react';
 
 function Wellness() {
   const [heroIndex, setHeroIndex] = useState(0);
-  const heroImages = ['/gal.jpg', '/w2.png', '/w3.png'];
+  const heroImages = ['/gal.jpg', '/stemS.jpg', '/crlb.jpg'];
 
   // Hero carousel cycling every 3 seconds
   useEffect(() => {
     const timer = setInterval(() => {
       setHeroIndex((prev) => (prev + 1) % heroImages.length);
-    }, 2000);
+    }, 4000);
     return () => clearInterval(timer);
   }, []);
 
   const facilities = [
-    { title: "Steam & Sauna Suites", tag: "THERAPEUTIC DETOX", desc: "Dual-zone thermal sanctuary for intense purification and deep muscle relief. The ultimate sanctuary for executive rejuvenation.", img: "/suna.png" },
-    { title: "Elite Performance Gym", tag: "FITNESS CENTER", desc: "Achieve peak conditioning in our expansive gym, featuring Olympic-grade equipment and advanced biometric tracking.", img: "/fitness.png" },
-    { title: "Cryotherapy Recovery Lab", tag: "METABOLIC HEALING", desc: "Sub-zero temperatures to accelerate muscle repair and reduce systemic inflammation for elite performance.", img: "/f3.png" },
-    { title: "Executive Wellness Lounge", tag: "CELLULAR REJUVENATION", desc: "Private space for post-treatment rest, serving antioxidant-rich refreshments and nutrient-dense infusions.", img: "/f4.png" },
-    { title: "Diagnostic Health Clinic", tag: "PRECISION WELLNESS", desc: "On-site specialists providing real-time data to tailor your recovery and fitness journey.", img: "/f5.png" },
-    { title: "Bio-Secure Sanctuary", tag: "TOTAL EXCLUSIVITY", desc: "Advanced entry systems ensuring absolute privacy for high-profile guests requiring secure, private access.", img: "/f6.png" }
+    { title: "Steam & Sauna Suites", tag: "THERAPEUTIC DETOX", desc: "Dual-zone thermal sanctuary for intense purification and deep muscle relief. The ultimate sanctuary for executive rejuvenation.", img: "/stemS.jpg" },
+    { title: "Elite Performance Gym", tag: "FITNESS CENTER", desc: "Achieve peak conditioning in our expansive gym, featuring Olympic-grade equipment and advanced biometric tracking.", img: "/gym.jpg" },
+    { title: "Cryotherapy Recovery Lab", tag: "METABOLIC HEALING", desc: "Sub-zero temperatures to accelerate muscle repair and reduce systemic inflammation for elite performance.", img: "/crlb.jpg" },
+    { title: "Executive Wellness Lounge", tag: "CELLULAR REJUVENATION", desc: "Private space for post-treatment rest, serving antioxidant-rich refreshments and nutrient-dense infusions.", img: "/willl.jpg" },
+    { title: "Diagnostic Health Clinic", tag: "PRECISION WELLNESS", desc: "On-site specialists providing real-time data to tailor your recovery and fitness journey.", img: "/dhealth.jpg" },
+    { title: "Bio-Secure Sanctuary", tag: "TOTAL EXCLUSIVITY", desc: "Advanced entry systems ensuring absolute privacy for high-profile guests requiring secure, private access.", img: "/sancu.jpg" }
   ];
 
   return (
