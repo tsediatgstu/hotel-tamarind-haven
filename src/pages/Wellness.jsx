@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 function Wellness() {
   const [heroIndex, setHeroIndex] = useState(0);
-  const heroImages = ['/gal.jpg', '/stemS1.jpg', '/crlb.jpg'];
+  const heroImages = ['/sancu.jpg', '/stemS1.jpg', '/crlb.jpg'];
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -23,24 +23,24 @@ function Wellness() {
   return (
     <div className="bg-neutral-70 min-h-screen font-sans">
       
-      {/* HERO SECTION */}
-      <section className="relative h-[40vh] flex flex-col items-center justify-center text-center overflow-hidden border-b-4 border-[#2B7A4B]">
+      {/* HERO CAROUSEL */}
+      <section className="relative h-[40vh] flex flex-col items-center justify-center text-center overflow-hidden border-b-4 border-[#2B7A4B] mb-16">
         {heroImages.map((img, idx) => (
-          <img key={img} src={img} className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${heroIndex === idx ? 'opacity-100' : 'opacity-0'}`} />
+          <img key={img} src={img} className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${heroIndex === idx ? 'opacity-100' : 'opacity-0'}`} alt="Hero" />
         ))}
         <div className="absolute inset-0 bg-[#1C2E24]/70" />
         <div className="relative z-10 px-4">
-          <h1 className="text-5xl md:text-4xl font-serif text-white mb-6">
-            <span className="text-[#D4AF37]">Wellness & Infrastructure</span>
+          <h1 className="text-5xl md:text-7xl font-serif text-white mb-6">
+            <span className="text-[#D4AF37]"> Wellness & Infrastructure</span>
           </h1>
         </div>
       </section>
 
-      {/* FACILITIES GRID - UPDATED IMAGE AREA */}
+      {/* FACILITIES GRID - UPDATED FOR CENTERED ALIGNMENT AND BOLD TITLES */}
 <section className="max-w-7xl mx-auto px-4 py-24">
   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
     {facilities.map((fac, i) => (
-      <div key={i} className="bg-white border border-neutral-200 p-8 hover:border-[#2B7A4B] transition-all shadow-sm">
+      <div key={i} className="bg-white border border-neutral-200 p-8 flex flex-col items-center text-center hover:border-[#2B7A4B] transition-all shadow-sm">
         
         {/* Fixed Size Image Container */}
         <div className="w-full h-56 my-6 bg-neutral-100 overflow-hidden relative">
@@ -51,9 +51,11 @@ function Wellness() {
           />
         </div>
 
-        <h3 className="text-sm font-black uppercase tracking-widest mb-4 text-[#2B7A4B]">
+        {/* Title updated with font-bold */}
+        <h3 className="text-sm font-black uppercase tracking-widest mb-4 text-[#2B7A4B] font-bold">
           {fac.title}
         </h3>
+        
         <p className="text-[11px] text-neutral-600 leading-relaxed mb-6">{fac.desc}</p>
         
         <button className="w-full border border-[#2B7A4B] text-[#2B7A4B] py-3 text-[10px] font-black uppercase tracking-widest hover:bg-[#2B7A4B] hover:text-white transition-all">
@@ -64,9 +66,6 @@ function Wellness() {
   </div>
 </section>
       
-      <footer className="py-12 text-center text-[#2B7A4B] text-[10px] uppercase tracking-[0.3em]">
-        © 2026 Hotel Tamarind Haven – Excellence in Every Detail
-      </footer>
     </div>
   );
 }

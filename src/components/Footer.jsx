@@ -3,10 +3,11 @@ import { FaPhoneAlt, FaWhatsapp, FaTelegram } from 'react-icons/fa';
 
 function Footer() {
   return (
-    <footer className="bg-[#2633CB] text-white pt-20 pb-10 border-t border-white/20">
+    // Background updated to Deep Forest Green for a luxury feel
+    <footer className="bg-[#1C2E24] text-white pt-20 pb-10 border-t border-[#2B7A4B]/30">
       <div className="max-w-7xl mx-auto px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-12 mb-20">
         
-        {/* BRAND IDENTITY - BOLD GREEN FOCUS */}
+        {/* BRAND IDENTITY */}
         <div className="md:col-span-2 space-y-4">
           <h4 className="font-sans text-4xl font-black tracking-tight text-[#2B7A4B]">
             HOTEL TAMARIND HAVEN 
@@ -18,6 +19,7 @@ function Footer() {
         
         {/* CONCIERGE */}
         <div>
+          {/* Titles are now bold and Heritage Green */}
           <h4 className="text-[10px] font-black tracking-[0.3em] uppercase text-[#2B7A4B] mb-6">Concierge</h4>
           <div className="space-y-4 text-xs font-bold text-white/90">
             <p>Bole District, Addis Ababa, Ethiopia</p>
@@ -37,6 +39,7 @@ function Footer() {
         
         {/* OPERATIONS */}
         <div>
+          {/* Titles are now bold and Heritage Green */}
           <h4 className="text-[10px] font-black tracking-[0.3em] uppercase text-[#2B7A4B] mb-6">Operations</h4>
           <div className="flex flex-col space-y-3 text-xs uppercase tracking-widest font-bold text-white/90">
             <a href="#" className="hover:text-[#2B7A4B] transition-colors">Privacy Policy</a>
@@ -48,7 +51,7 @@ function Footer() {
       </div>
       
       {/* COPYRIGHT */}
-      <div className="max-w-7xl mx-auto px-6 pt-8 border-t border-white/20 flex flex-col md:flex-row justify-between items-center text-[10px] tracking-[0.2em] text-white/60 font-bold">
+      <div className="max-w-7xl mx-auto px-6 pt-8 border-t border-[#2B7A4B]/30 flex flex-col md:flex-row justify-between items-center text-[10px] tracking-[0.2em] text-white/60 font-bold">
         <p>&copy; {new Date().getFullYear()} Hotel Tamarind Haven. All Rights Reserved.</p>
         <p className="mt-4 md:mt-0">
           Developed By: <span className="text-white">Tsedia @Tgstu</span> | 

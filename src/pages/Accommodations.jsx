@@ -101,16 +101,16 @@ function Accommodations() {
           <h1 className="text-5xl md:text-7xl font-serif text-white mb-6">
             <span className="text-[#D4AF37]"> Our Accommodation</span>
           </h1>
-         
         </div>
       </section>
-        {/* HEADER */}
+
+      {/* HEADER */}
       <header className="py-1 text-center px-4">
-        <h2 className="text-xl md:text-2xl font-serif text-[#1C2E24] leading-relaxed">
-"A sanctuary for the modern executive, blending sophisticated global design
- with state-of-the-art technology. Experience absolute privacy, refined comfort, 
- and the timeless warmth of Ethiopian hospitality."
-  </h2>
+        <h2 className="text-xl md:text-2xl font-serif text-[#2B7A4B] leading-relaxed">
+          "A sanctuary for the modern executive, blending sophisticated global design
+          with state-of-the-art technology. Experience absolute privacy, refined comfort, 
+          and the timeless warmth of Ethiopian hospitality."
+        </h2>
       </header>
 
       {/* ROOM GRID */}
@@ -125,8 +125,8 @@ function Accommodations() {
                   {room.availableNumber} Units Left
                 </div>
                 <div className="absolute bottom-4 right-4 bg-white/90 backdrop-blur px-4 py-2 border-l-2 border-[#2B7A4B]">
-                  <p className="text-[9px] text-neutral-500 uppercase font-bold">From</p>
-                  <p className="text-lg font-black text-[#1C2E24]">${room.startingPrice}</p>
+                  <p className="text-[9px] text-[#2B7A4B] uppercase font-bold">From</p>
+                  <p className="text-lg font-black text-[#2B7A4B]">${room.startingPrice}</p>
                 </div>
               </div>
 
@@ -145,7 +145,7 @@ function Accommodations() {
                 </ul>
 
                 <div className="mb-6">
-                  <h4 className="text-[9px] uppercase tracking-widest font-black text-[#1C2E24] mb-3">Key Amenities</h4>
+                  <h4 className="text-[9px] uppercase tracking-widest font-black text-[#2B7A4B] mb-3">Key Amenities</h4>
                   <div className="flex flex-wrap gap-2">
                     {room.highlights.map((h, hIndex) => (
                       <span key={hIndex} className="bg-neutral-100 px-2 py-1 text-[9px] font-bold text-neutral-600 uppercase border border-neutral-200">

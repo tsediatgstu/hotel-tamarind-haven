@@ -17,17 +17,17 @@ function BookNow() {
   };
 
   return (
-    <div className="min-h-screen bg-[#f8faff] py-16 px-4 flex items-center justify-center font-sans">
-      <div className="max-w-6xl w-full bg-white rounded-3xl shadow-[0_20px_50px_rgba(38,51,203,0.15)] border border-[#2633CB]/20 overflow-hidden grid grid-cols-1 lg:grid-cols-12">
+    <div className="min-h-screen bg-[#FBFBFA] py-16 px-4 flex items-center justify-center font-sans">
+      <div className="max-w-6xl w-full bg-white rounded-3xl shadow-xl border border-neutral-100 overflow-hidden grid grid-cols-1 lg:grid-cols-12">
         
-        {/* LEFT COLUMN: HERITAGE & CONTACTS */}
-        <div className="lg:col-span-5 bg-[#2633CB] p-10 flex flex-col justify-between text-white">
+        {/* LEFT COLUMN: HERITAGE & CONTACTS - Updated to Deep Forest Green */}
+        <div className="lg:col-span-5 bg-[#1C2E24] p-10 flex flex-col justify-between text-white">
           <div>
-            <h2 className="text-4xl font-serif leading-tight mb-6">
+            <h2 className="text-4xl font-serif leading-tight mb-6 text-[#D4AF37]">
               Tamarind Haven <br/>
               <span className="text-white/60 font-sans font-light text-2xl tracking-widest uppercase">Addis Ababa</span>
             </h2>
-            <p className="text-xs text-white/70 leading-relaxed font-light border-l-2 border-white/30 pl-4">
+            <p className="text-xs text-white/70 leading-relaxed font-light border-l-2 border-[#2B7A4B] pl-4">
               Blending the timeless soul of Ethiopian hospitality with the precision of modern global luxury.
             </p>
           </div>
@@ -39,7 +39,7 @@ function BookNow() {
               { label: 'Telegram Direct', val: '+211 922 912 939', icon: <FaTelegram /> }
             ].map((item, i) => (
               <div key={i} className="flex items-center space-x-4 border-b border-white/10 pb-4">
-                <span className="w-10 h-10 flex items-center justify-center rounded-full bg-white/10 text-white text-lg">
+                <span className="w-10 h-10 flex items-center justify-center rounded-full bg-[#2B7A4B]/20 text-[#2B7A4B] text-lg">
                   {item.icon}
                 </span>
                 <div>
@@ -55,20 +55,20 @@ function BookNow() {
           </div>
         </div>
 
-        {/* RIGHT COLUMN: BOOKING ENGINE */}
+        {/* RIGHT COLUMN: BOOKING ENGINE - Updated to Heritage Green Theme */}
         <div className="lg:col-span-7 p-10 bg-white">
           <div className="grid grid-cols-2 gap-4 mb-10">
-            <button onClick={() => setActiveTab('form')} className={`py-4 text-[10px] font-black uppercase tracking-[0.2em] rounded-xl transition-all ${activeTab === 'form' ? 'bg-[#2633CB] text-white shadow-lg' : 'bg-neutral-100 text-neutral-500'}`}>
+            <button onClick={() => setActiveTab('form')} className={`py-4 text-[10px] font-black uppercase tracking-[0.2em] rounded-xl transition-all ${activeTab === 'form' ? 'bg-[#2B7A4B] text-white shadow-lg' : 'bg-neutral-100 text-neutral-500'}`}>
               Booking Engine
             </button>
-            <button onClick={() => setActiveTab('call')} className={`py-4 text-[10px] font-black uppercase tracking-[0.2em] rounded-xl transition-all ${activeTab === 'call' ? 'bg-[#2633CB] text-white shadow-lg' : 'bg-neutral-100 text-neutral-500'}`}>
+            <button onClick={() => setActiveTab('call')} className={`py-4 text-[10px] font-black uppercase tracking-[0.2em] rounded-xl transition-all ${activeTab === 'call' ? 'bg-[#2B7A4B] text-white shadow-lg' : 'bg-neutral-100 text-neutral-500'}`}>
               Direct Contact
             </button>
           </div>
 
           {activeTab === 'form' ? (
             <form onSubmit={handleSubmit} className="space-y-6">
-              <select name="selectedRoom" onChange={handleInputChange} className="w-full p-4 bg-neutral-50 border border-neutral-200 rounded-xl text-sm focus:ring-2 focus:ring-[#2633CB] outline-none transition-all">
+              <select name="selectedRoom" onChange={handleInputChange} className="w-full p-4 bg-neutral-50 border border-neutral-200 rounded-xl text-sm focus:ring-2 focus:ring-[#2B7A4B] outline-none transition-all">
                 <option value="">Select Room Profile</option>
                 <option value="Standard">Standard Room</option>
                 <option value="Twin">Twin Room</option>
@@ -78,19 +78,19 @@ function BookNow() {
                 <option value="Family">Family Room</option>
               </select>
               <div className="grid grid-cols-2 gap-4">
-                <input type="date" name="checkIn" onChange={handleInputChange} className="p-4 bg-neutral-50 border border-neutral-200 rounded-xl text-sm focus:ring-2 focus:ring-[#2633CB] outline-none" />
-                <input type="date" name="checkOut" onChange={handleInputChange} className="p-4 bg-neutral-50 border border-neutral-200 rounded-xl text-sm focus:ring-2 focus:ring-[#2633CB] outline-none" />
+                <input type="date" name="checkIn" onChange={handleInputChange} className="p-4 bg-neutral-50 border border-neutral-200 rounded-xl text-sm focus:ring-2 focus:ring-[#2B7A4B] outline-none" />
+                <input type="date" name="checkOut" onChange={handleInputChange} className="p-4 bg-neutral-50 border border-neutral-200 rounded-xl text-sm focus:ring-2 focus:ring-[#2B7A4B] outline-none" />
               </div>
-              <button type="submit" className="w-full py-4 bg-[#2633CB] text-white rounded-xl font-bold uppercase tracking-widest text-xs hover:bg-[#1f29a3] transition-all shadow-lg">
+              <button type="submit" className="w-full py-4 bg-[#2B7A4B] text-white rounded-xl font-bold uppercase tracking-widest text-xs hover:bg-[#1C2E24] transition-all shadow-lg">
                 Finalize Reservation
               </button>
             </form>
           ) : (
             <div className="space-y-4">
-              <div className="p-8 bg-[#2633CB]/5 border border-[#2633CB]/20 rounded-2xl text-center">
-                <h4 className="text-sm font-bold text-[#2633CB] mb-4 uppercase tracking-widest">Connect Directly</h4>
+              <div className="p-8 bg-[#2B7A4B]/5 border border-[#2B7A4B]/20 rounded-2xl text-center">
+                <h4 className="text-sm font-bold text-[#2B7A4B] mb-4 uppercase tracking-widest">Connect Directly</h4>
                 <div className="space-y-3">
-                  <a href="tel:+251994494884" className="flex items-center justify-center gap-3 py-3 bg-[#2633CB] text-white rounded-xl font-bold uppercase tracking-widest text-[10px] hover:bg-[#1f29a3]">
+                  <a href="tel:+251994494884" className="flex items-center justify-center gap-3 py-3 bg-[#2B7A4B] text-white rounded-xl font-bold uppercase tracking-widest text-[10px] hover:bg-[#1C2E24]">
                     <FaPhoneAlt /> Call Concierge
                   </a>
                   <a href="https://wa.me/254141043048" className="flex items-center justify-center gap-3 py-3 bg-[#25D366] text-white rounded-xl font-bold uppercase tracking-widest text-[10px]">
